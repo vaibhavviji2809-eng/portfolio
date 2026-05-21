@@ -23,7 +23,7 @@ export default function Portfolio() {
     github: "https://github.com/vaibhavvij2809-engg",
     linkedin: "https://www.linkedin.com/in/vaibhav-viswanath-a65125315",
     email: "mailto:vaibhavvij280@gmail.com",
-    resume: "/resume.pdf",
+    resume: `${import.meta.env.BASE_URL}resume.pdf`,
   };
 
   const navItems = [
