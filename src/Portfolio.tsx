@@ -88,6 +88,7 @@ export default function Portfolio() {
   const research = [
     {
       title: "Operating System-Level Optimization for Accelerating AI Inference",
+      status: "Unpublished manuscript",
       points: [
         "Conducted NUMA-based CPU affinity experiments using numactl.",
         "Benchmarked inference latency under memory binding configurations.",
@@ -113,6 +114,7 @@ export default function Portfolio() {
     },
     {
       title: "Suicide Risk Prediction using Machine Learning",
+      status: "Unpublished manuscript",
       points: [
         "Designed predictive ML models with imbalance handling.",
         "Evaluated performance using ROC-AUC and F1 metrics.",
