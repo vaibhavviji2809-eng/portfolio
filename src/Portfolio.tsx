@@ -103,6 +103,15 @@ export default function Portfolio() {
       ],
     },
     {
+      title: "Emotion Detection Using Artificial Intelligence",
+      status: "Unpublished manuscript",
+      points: [
+        "Explored multimodal emotion recognition across facial, speech, and text signals.",
+        "Reviewed CNN-based facial emotion recognition approaches, including MTCNN-style detection pipelines.",
+        "Analyzed applications, ethical risks, and future scope of AI-driven emotion analysis in healthcare, education, and human-computer interaction.",
+      ],
+    },
+    {
       title: "Suicide Risk Prediction using Machine Learning",
       points: [
         "Designed predictive ML models with imbalance handling.",
@@ -249,7 +258,14 @@ export default function Portfolio() {
                 <div className="absolute -left-[31px] top-8 h-3 w-3 rounded-full bg-sky-400" />
                 <Card className="mb-6 rounded-2xl border-zinc-800 bg-zinc-900/80 shadow-xl">
                   <CardContent className="p-6">
-                    <h3 className="text-xl font-semibold text-white">{item.title}</h3>
+                    <div className="flex flex-wrap items-center gap-3">
+                      <h3 className="text-xl font-semibold text-white">{item.title}</h3>
+                      {item.status ? (
+                        <span className="rounded-full border border-zinc-700 bg-zinc-950 px-3 py-1 text-xs font-medium uppercase tracking-[0.2em] text-zinc-400">
+                          {item.status}
+                        </span>
+                      ) : null}
+                    </div>
                     <ul className="mt-4 list-disc space-y-2 pl-5 text-sm leading-7 text-zinc-400">
                       {item.points.map((point) => (
                         <li key={point}>{point}</li>
