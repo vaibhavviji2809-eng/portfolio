@@ -20,7 +20,7 @@ export default function Portfolio() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   const links = {
-    github: "https://github.com/vaibhavvij2809-eng",
+    github: "https://github.com/vaibhavviji2809-eng",
     linkedin: "https://www.linkedin.com/in/vaibhav-viswanath-a65125315",
     email: "mailto:vaibhavvij280@gmail.com",
     resume: `${import.meta.env.BASE_URL}resume.pdf`,
@@ -66,21 +66,21 @@ export default function Portfolio() {
       title: "CUDA Kernel Optimization Suite",
       desc: "Implemented naive and tiled CUDA kernels and achieved up to 240x speedup over a CPU baseline through GPU-level optimization.",
       tech: "CUDA, GPU Optimization, Parallel Computing",
-      repo: "https://github.com/vaibhavvij2809-eng/cuda-nn-engine",
+      repo: "https://github.com/vaibhavviji2809-eng/cuda-nn-engine",
       icon: <Cpu className="h-6 w-6" />,
     },
     {
       title: "TensorRT Inference Acceleration",
       desc: "Converted deep learning models into optimized TensorRT engines and reduced inference latency using FP16 precision.",
       tech: "TensorRT, Deep Learning, FP16",
-      repo: "https://github.com/vaibhavvij2809-eng",
+      repo: "https://github.com/vaibhavviji2809-eng",
       icon: <Brain className="h-6 w-6" />,
     },
     {
       title: "Multilingual Sign Language Detection",
       desc: "Built a YOLOv8 and MobileNetV2-based pipeline for multilingual sign language detection across 84 classes with GPU-optimized inference.",
       tech: "YOLOv8, MobileNetV2, NVIDIA T4",
-      repo: "https://github.com/vaibhavvij2809-eng/sign-language-project",
+      repo: "https://github.com/vaibhavviji2809-eng/sign-language-project",
       icon: <Code2 className="h-6 w-6" />,
     },
   ];
