@@ -96,6 +96,7 @@ export default function Portfolio() {
     },
     {
       title: "Artificial Intelligence and Privacy Concerns",
+      link: "https://www.cureusjournals.com/articles/3689-artificial-intelligence-and-privacy-concerns-balancing-innovation-with-security#!/",
       points: [
         "Published research on privacy vulnerabilities in large-scale AI systems.",
         "Proposed mitigation strategies for secure AI deployment.",
@@ -254,6 +255,16 @@ export default function Portfolio() {
                         <li key={point}>{point}</li>
                       ))}
                     </ul>
+                    {item.link ? (
+                      <a
+                        href={item.link}
+                        target="_blank"
+                        rel="noreferrer"
+                        className="mt-5 inline-flex rounded-xl bg-sky-500 px-4 py-2 text-sm font-medium text-white hover:bg-sky-400"
+                      >
+                        View Publication
+                      </a>
+                    ) : null}
                   </CardContent>
                 </Card>
               </motion.div>
