@@ -346,8 +346,7 @@ export default function Portfolio() {
                   VIT Vellore Institute of Technology
                 </h3>
                 <p className="mt-2 text-zinc-400">
-                  AI Systems, GPU Optimization, Computer Architecture, and Deep
-                  Learning Systems
+                  Bachelor of Technology in Computer Science
                 </p>
               </div>
             </CardContent>
