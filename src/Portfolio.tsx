@@ -22,7 +22,7 @@ export default function Portfolio() {
   const links = {
     github: "https://github.com/vaibhavviji2809-eng",
     linkedin: "https://www.linkedin.com/in/vaibhav-viswanath-a65125315",
-    email: "mailto:vaibhavvij280@gmail.com",
+    email: "mailto:vaibhavviji2809@gmail.com",
     resume: `${import.meta.env.BASE_URL}resume.pdf`,
   };
 
