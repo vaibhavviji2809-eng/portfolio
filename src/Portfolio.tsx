@@ -83,6 +83,20 @@ export default function Portfolio() {
       repo: "https://github.com/vaibhavviji2809-eng/sign-language-project",
       icon: <Code2 className="h-6 w-6" />,
     },
+    {
+      title: "LLM Inference Engine",
+      desc: "Built an inference engine for running and experimenting with large language models, focused on practical serving and performance work.",
+      tech: "LLM Serving, Inference, Optimization",
+      repo: "https://github.com/vaibhavviji2809-eng/llm-inference-engine",
+      icon: <Brain className="h-6 w-6" />,
+    },
+    {
+      title: "MiniPyTorch",
+      desc: "Implemented a lightweight PyTorch-inspired framework to explore deep learning internals and core tensor operations.",
+      tech: "Deep Learning, Autograd, PyTorch Internals",
+      repo: "https://github.com/vaibhavviji2809-eng/MiniPyTorch",
+      icon: <Cpu className="h-6 w-6" />,
+    },
   ];
 
   const research = [
