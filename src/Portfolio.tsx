@@ -2,25 +2,34 @@ import { useState } from "react";
 import { motion } from "framer-motion";
 import {
   ArrowUpRight,
+  BadgeCheck,
+  BookOpenText,
   Brain,
   Code2,
   Cpu,
   Download,
   ExternalLink,
-  BadgeCheck,
   Github,
   GraduationCap,
+  Layers3,
   Linkedin,
   Mail,
   Menu,
   Sparkles,
-  Layers3,
-  BookOpenText,
   Zap,
   X,
 } from "lucide-react";
-import { Card, CardContent } from "./components/ui/card";
 import { Button } from "./components/ui/button";
+import { Card, CardContent } from "./components/ui/card";
+
+const fadeUp = {
+  hidden: { opacity: 0, y: 22 },
+  show: (delay = 0) => ({
+    opacity: 1,
+    y: 0,
+    transition: { duration: 0.7, delay },
+  }),
+};
 
 export default function Portfolio() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -34,51 +43,31 @@ export default function Portfolio() {
 
   const navItems = [
     { href: "#about", label: "About" },
-    { href: "#research", label: "Research" },
     { href: "#projects", label: "Projects" },
+    { href: "#research", label: "Research" },
     { href: "#education", label: "Education" },
     { href: "#contact", label: "Contact" },
   ];
 
   const metrics = [
-    { value: "6", label: "portfolio projects" },
+    { value: "6", label: "featured projects" },
     { value: "4", label: "research works" },
-    { value: "LLM", label: "inference + systems focus" },
+    { value: "LLM", label: "inference + systems" },
     { value: "US", label: "remote target" },
   ];
 
   const focusAreas = [
-    "GPU optimization",
+    "GPU acceleration",
     "LLM serving",
     "Distributed training",
     "CUDA + TensorRT",
   ];
 
-  const skills = [
-    "C++",
-    "Python",
-    "C",
-    "Swift",
-    "Go",
-    "R",
-    "CUDA",
-    "TensorRT",
-    "cuDNN",
-    "DeepStream",
-    "PyTorch",
-    "CNNs",
-    "RNNs",
-    "Transformers",
-    "GANs",
-    "Linux",
-    "NUMA Optimization",
-    "CPU Affinity",
-    "Memory Hierarchy",
-    "OS Scheduling",
-    "Data Structures & Algorithms",
-    "Computer Architecture",
-    "Operating Systems",
-    "Probability & Statistics",
+  const strengths = [
+    "Latency reduction",
+    "Throughput tuning",
+    "Memory hierarchy",
+    "Scheduler awareness",
   ];
 
   const projects = [
@@ -86,6 +75,7 @@ export default function Portfolio() {
       title: "CUDA Kernel Optimization Suite",
       desc: "Implemented naive and tiled CUDA kernels and achieved up to 240x speedup over a CPU baseline through GPU-level optimization.",
       tech: "CUDA, GPU Optimization, Parallel Computing",
+      impact: "240x speedup",
       repo: "https://github.com/vaibhavviji2809-eng/cuda-nn-engine",
       icon: <Cpu className="h-6 w-6" />,
     },
@@ -93,6 +83,7 @@ export default function Portfolio() {
       title: "TensorRT Inference Acceleration",
       desc: "Converted deep learning models into optimized TensorRT engines and reduced inference latency using FP16 precision.",
       tech: "TensorRT, Deep Learning, FP16",
+      impact: "Inference latency reduction",
       repo: "https://github.com/vaibhavviji2809-eng",
       icon: <Brain className="h-6 w-6" />,
     },
@@ -100,6 +91,7 @@ export default function Portfolio() {
       title: "Multilingual Sign Language Detection",
       desc: "Built a YOLOv8 and MobileNetV2-based pipeline for multilingual sign language detection across 84 classes with GPU-optimized inference.",
       tech: "YOLOv8, MobileNetV2, NVIDIA T4",
+      impact: "84 classes",
       repo: "https://github.com/vaibhavviji2809-eng/sign-language-project",
       icon: <Code2 className="h-6 w-6" />,
     },
@@ -107,13 +99,15 @@ export default function Portfolio() {
       title: "LLM Inference Engine",
       desc: "Built an inference engine for running and experimenting with large language models, focused on practical serving and performance work.",
       tech: "LLM Serving, Inference, Optimization",
+      impact: "LLM systems",
       repo: "https://github.com/vaibhavviji2809-eng/llm-inference-engine",
-      icon: <Brain className="h-6 w-6" />,
+      icon: <Layers3 className="h-6 w-6" />,
     },
     {
       title: "MiniPyTorch",
       desc: "Implemented a lightweight PyTorch-inspired framework to explore deep learning internals and core tensor operations.",
       tech: "Deep Learning, Autograd, PyTorch Internals",
+      impact: "Framework internals",
       repo: "https://github.com/vaibhavviji2809-eng/MiniPyTorch",
       icon: <Cpu className="h-6 w-6" />,
     },
@@ -121,6 +115,7 @@ export default function Portfolio() {
       title: "Mini Distributed Training Framework",
       desc: "Built a compact framework for experimenting with distributed training workflows, scaling strategies, and deep learning systems concepts.",
       tech: "Distributed Training, Deep Learning Systems, Scaling",
+      impact: "Distributed scaling",
       repo: "https://github.com/vaibhavviji2809-eng/Mini-Distributed-Training-Framework",
       icon: <Brain className="h-6 w-6" />,
     },
@@ -164,27 +159,27 @@ export default function Portfolio() {
   ];
 
   return (
-    <div className="relative min-h-screen overflow-hidden bg-[#070b14] text-white">
-      <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_top_left,_rgba(34,211,238,0.18),_transparent_28%),radial-gradient(circle_at_top_right,_rgba(16,185,129,0.16),_transparent_26%),linear-gradient(to_bottom,_rgba(255,255,255,0.03),_transparent_20%)]" />
-      <div className="pointer-events-none absolute inset-0 opacity-[0.14] [background-image:linear-gradient(rgba(255,255,255,0.08)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.08)_1px,transparent_1px)] [background-size:60px_60px]" />
+    <div className="relative min-h-screen overflow-hidden bg-[#060913] text-white">
+      <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_top_left,_rgba(34,211,238,0.16),_transparent_30%),radial-gradient(circle_at_top_right,_rgba(99,102,241,0.14),_transparent_28%),radial-gradient(circle_at_bottom_left,_rgba(16,185,129,0.12),_transparent_26%),linear-gradient(to_bottom,_rgba(255,255,255,0.02),_transparent_20%)]" />
+      <div className="pointer-events-none absolute inset-0 opacity-[0.12] [background-image:linear-gradient(rgba(255,255,255,0.08)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.08)_1px,transparent_1px)] [background-size:72px_72px]" />
 
-      <nav className="sticky top-0 z-50 border-b border-white/10 bg-[#070b14]/70 px-4 py-3 backdrop-blur-xl md:px-6">
+      <nav className="sticky top-0 z-50 border-b border-white/10 bg-[#060913]/75 px-4 py-3 backdrop-blur-xl md:px-6">
         <div className="mx-auto flex max-w-7xl items-center justify-between">
-          <a href="#home" className="group flex items-center gap-3">
-            <span className="flex h-10 w-10 items-center justify-center rounded-2xl border border-cyan-400/30 bg-cyan-400/10 text-cyan-300 shadow-[0_0_30px_rgba(34,211,238,0.16)]">
+          <a href="#home" className="flex items-center gap-3">
+            <span className="flex h-10 w-10 items-center justify-center rounded-2xl border border-cyan-400/30 bg-cyan-400/10 text-cyan-300">
               <Sparkles className="h-5 w-5" />
             </span>
             <div>
               <p className="text-sm font-semibold tracking-[0.22em] text-white/90">
                 VAIBHAV VISWANATH
               </p>
-              <p className="text-xs uppercase tracking-[0.24em] text-cyan-300/80">
+              <p className="text-[11px] uppercase tracking-[0.3em] text-cyan-300/80">
                 AI Systems Portfolio
               </p>
             </div>
           </a>
 
-          <div className="hidden items-center gap-2 rounded-full border border-white/10 bg-white/5 p-1 text-sm md:flex">
+          <div className="hidden items-center gap-1 rounded-full border border-white/10 bg-white/5 p-1 text-sm md:flex">
             {navItems.map((item) => (
               <a
                 key={item.href}
@@ -205,7 +200,7 @@ export default function Portfolio() {
             </a>
             <button
               type="button"
-              className="rounded-2xl border border-white/10 bg-white/5 p-3 text-zinc-100 backdrop-blur md:hidden"
+              className="rounded-2xl border border-white/10 bg-white/5 p-3 text-zinc-100 md:hidden"
               onClick={() => setIsMenuOpen((open) => !open)}
               aria-label={isMenuOpen ? "Close navigation menu" : "Open navigation menu"}
               aria-expanded={isMenuOpen}
@@ -219,7 +214,7 @@ export default function Portfolio() {
         {isMenuOpen ? (
           <div
             id="mobile-nav"
-            className="mx-auto mt-4 flex max-w-7xl flex-col gap-2 rounded-3xl border border-white/10 bg-[#0b1020]/95 p-3 md:hidden"
+            className="mx-auto mt-4 flex max-w-7xl flex-col gap-2 rounded-3xl border border-white/10 bg-[#0a1020]/95 p-3 md:hidden"
           >
             {navItems.map((item) => (
               <a
@@ -242,28 +237,28 @@ export default function Portfolio() {
         ) : null}
       </nav>
 
-      <section id="home" className="relative px-4 pt-10 md:px-6 md:pt-16">
-        <div className="mx-auto grid max-w-7xl gap-6 lg:grid-cols-[1.4fr_0.85fr]">
+      <section id="home" className="px-4 pt-10 md:px-6 md:pt-16">
+        <div className="mx-auto grid max-w-7xl gap-6 lg:grid-cols-[1.45fr_0.9fr]">
           <motion.div
-            initial={{ opacity: 0, y: 24 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
-            className="relative overflow-hidden rounded-[2rem] border border-white/10 bg-white/5 p-6 shadow-2xl shadow-cyan-950/30 backdrop-blur-xl md:p-10"
+            variants={fadeUp}
+            initial="hidden"
+            animate="show"
+            custom={0}
+            className="relative overflow-hidden rounded-[2.25rem] border border-white/10 bg-white/5 p-6 shadow-2xl shadow-cyan-950/30 backdrop-blur-xl md:p-10"
           >
-            <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_right,_rgba(34,211,238,0.16),_transparent_34%),radial-gradient(circle_at_bottom_left,_rgba(245,158,11,0.12),_transparent_30%)]" />
+            <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_right,_rgba(34,211,238,0.15),_transparent_34%),radial-gradient(circle_at_bottom_left,_rgba(245,158,11,0.12),_transparent_30%)]" />
             <div className="relative">
               <span className="inline-flex items-center gap-2 rounded-full border border-cyan-400/20 bg-cyan-400/10 px-4 py-2 text-xs font-semibold uppercase tracking-[0.28em] text-cyan-200">
                 <Zap className="h-3.5 w-3.5" />
-                AI Systems + GPU + LLMs
+                GPU acceleration, LLM inference, deep learning systems
               </span>
               <h1 className="mt-6 max-w-4xl text-5xl font-black leading-none tracking-tight md:text-7xl">
-                Building AI systems that feel fast, precise, and production-ready.
+                Building AI systems that feel fast before they look impressive.
               </h1>
               <p className="mt-6 max-w-2xl text-lg leading-8 text-zinc-300">
-                I focus on high-performance AI infrastructure, GPU acceleration,
-                CUDA optimization, LLM inference, and deep learning systems
-                research. The goal is simple: make models run better and systems
-                scale smarter.
+                I focus on high-performance AI infrastructure, CUDA optimization,
+                TensorRT deployment, distributed training experiments, and research
+                that treats performance as a first-class feature.
               </p>
 
               <div className="mt-8 flex flex-wrap gap-4">
@@ -298,10 +293,11 @@ export default function Portfolio() {
 
           <div className="grid gap-6">
             <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, delay: 0.08 }}
-              className="rounded-[2rem] border border-white/10 bg-[#0b1020]/90 p-6 shadow-2xl shadow-teal-950/20 backdrop-blur-xl"
+              variants={fadeUp}
+              initial="hidden"
+              animate="show"
+              custom={0.08}
+              className="rounded-[2rem] border border-white/10 bg-[#0a1020]/90 p-6 shadow-2xl shadow-teal-950/20 backdrop-blur-xl"
             >
               <div className="flex items-center gap-3">
                 <div className="rounded-2xl bg-cyan-400/10 p-3 text-cyan-300">
@@ -327,30 +323,30 @@ export default function Portfolio() {
             </motion.div>
 
             <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, delay: 0.14 }}
+              variants={fadeUp}
+              initial="hidden"
+              animate="show"
+              custom={0.14}
               className="rounded-[2rem] border border-white/10 bg-white/5 p-6 backdrop-blur-xl"
             >
               <div className="flex items-center justify-between">
                 <div>
                   <p className="text-sm font-semibold uppercase tracking-[0.22em] text-amber-200/80">
-                    What I build
+                    What I optimize
                   </p>
-                  <p className="mt-1 text-zinc-300">From CUDA kernels to LLM serving</p>
+                  <p className="mt-1 text-zinc-300">From kernels to whole pipelines</p>
                 </div>
                 <BadgeCheck className="h-6 w-6 text-emerald-300" />
               </div>
               <div className="mt-5 space-y-3 text-sm text-zinc-300">
-                <div className="rounded-2xl border border-white/10 bg-black/20 p-4">
-                  High-performance AI inference and GPU optimization
-                </div>
-                <div className="rounded-2xl border border-white/10 bg-black/20 p-4">
-                  Systems research across OS scheduling, NUMA, and memory behavior
-                </div>
-                <div className="rounded-2xl border border-white/10 bg-black/20 p-4">
-                  Experimental deep learning frameworks and distributed training tools
-                </div>
+                {strengths.map((item) => (
+                  <div
+                    key={item}
+                    className="rounded-2xl border border-white/10 bg-black/20 p-4"
+                  >
+                    {item}
+                  </div>
+                ))}
               </div>
             </motion.div>
           </div>
@@ -365,25 +361,25 @@ export default function Portfolio() {
                 About
               </p>
               <h2 className="mt-4 text-3xl font-black tracking-tight md:text-4xl">
-                I care about speed, clarity, and systems that don&apos;t crumble under load.
+                I build systems that survive real constraints.
               </h2>
-              <p className="mt-4 text-zinc-300 leading-8">
+              <p className="mt-4 leading-8 text-zinc-300">
                 My work combines CUDA, TensorRT, Linux systems, computer architecture,
                 and research-driven ML to improve inference latency and throughput.
-                I like projects where the bottleneck is real and the solution has to be
-                measured, not guessed.
+                I like projects where the bottleneck is measurable and the fix has to
+                be earned.
               </p>
             </div>
 
             <div className="grid gap-4 md:grid-cols-2">
-              {skills.map((skill, index) => (
+              {focusAreas.concat(strengths).map((skill, index) => (
                 <motion.div
                   key={skill}
                   initial={{ opacity: 0, y: 12 }}
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
                   transition={{ delay: index * 0.02 }}
-                  className="rounded-2xl border border-white/10 bg-[#0b1020]/80 px-4 py-3 text-sm text-zinc-200 shadow-lg shadow-black/10"
+                  className="rounded-2xl border border-white/10 bg-[#0a1020]/80 px-4 py-3 text-sm text-zinc-200 shadow-lg shadow-black/10"
                 >
                   {skill}
                 </motion.div>
@@ -399,7 +395,7 @@ export default function Portfolio() {
                 Projects
               </p>
               <h2 className="mt-3 text-3xl font-black tracking-tight md:text-4xl">
-                Selected work that shows the engineering range
+                A portfolio of systems work, not just code samples
               </h2>
             </div>
           </div>
@@ -422,7 +418,7 @@ export default function Portfolio() {
                         {project.icon}
                       </div>
                       <span className="rounded-full border border-white/10 bg-black/20 px-3 py-1 text-[11px] uppercase tracking-[0.24em] text-zinc-400">
-                        Project
+                        {project.impact}
                       </span>
                     </div>
                     <h3 className="mt-5 text-2xl font-bold tracking-tight text-white">
@@ -466,7 +462,7 @@ export default function Portfolio() {
                   Research
                 </p>
                 <h2 className="text-3xl font-black tracking-tight md:text-4xl">
-                  Publications, manuscripts, and exploratory work
+                  Research and writing that show technical depth
                 </h2>
               </div>
             </div>
@@ -479,7 +475,7 @@ export default function Portfolio() {
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
                   transition={{ delay: index * 0.08 }}
-                  className="relative overflow-hidden rounded-[1.6rem] border border-white/10 bg-[#0b1020]/85 p-6"
+                  className="relative overflow-hidden rounded-[1.6rem] border border-white/10 bg-[#0a1020]/85 p-6"
                 >
                   <div className="absolute inset-x-0 top-0 h-1 bg-gradient-to-r from-amber-300 via-cyan-300 to-emerald-300" />
                   <div className="flex flex-wrap items-center gap-3">
@@ -545,7 +541,7 @@ export default function Portfolio() {
             </Card>
 
             <div className="grid gap-4">
-              <div className="rounded-[1.6rem] border border-white/10 bg-[#0b1020]/85 p-6">
+              <div className="rounded-[1.6rem] border border-white/10 bg-[#0a1020]/85 p-6">
                 <p className="text-sm font-semibold uppercase tracking-[0.24em] text-emerald-200/80">
                   What hiring managers should notice
                 </p>
@@ -590,7 +586,7 @@ export default function Portfolio() {
                   <h2 className="mt-4 text-4xl font-black tracking-tight md:text-5xl">
                     Let&apos;s build something fast, useful, and technically honest.
                   </h2>
-                  <p className="mt-4 max-w-2xl text-zinc-300 leading-8">
+                  <p className="mt-4 max-w-2xl leading-8 text-zinc-300">
                     I&apos;m open to AI systems, GPU engineering, CUDA, inference optimization,
                     and research-focused engineering roles.
                   </p>
