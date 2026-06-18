@@ -1,16 +1,22 @@
 import { useState } from "react";
 import { motion } from "framer-motion";
 import {
+  ArrowUpRight,
   Brain,
   Code2,
   Cpu,
   Download,
   ExternalLink,
+  BadgeCheck,
   Github,
   GraduationCap,
   Linkedin,
   Mail,
   Menu,
+  Sparkles,
+  Layers3,
+  BookOpenText,
+  Zap,
   X,
 } from "lucide-react";
 import { Card, CardContent } from "./components/ui/card";
@@ -32,6 +38,20 @@ export default function Portfolio() {
     { href: "#projects", label: "Projects" },
     { href: "#education", label: "Education" },
     { href: "#contact", label: "Contact" },
+  ];
+
+  const metrics = [
+    { value: "6", label: "portfolio projects" },
+    { value: "4", label: "research works" },
+    { value: "LLM", label: "inference + systems focus" },
+    { value: "US", label: "remote target" },
+  ];
+
+  const focusAreas = [
+    "GPU optimization",
+    "LLM serving",
+    "Distributed training",
+    "CUDA + TensorRT",
   ];
 
   const skills = [
@@ -144,47 +164,68 @@ export default function Portfolio() {
   ];
 
   return (
-    <div className="min-h-screen bg-zinc-950 text-white">
-      <nav className="sticky top-0 z-50 border-b border-zinc-800 bg-zinc-950/80 px-6 py-4 backdrop-blur-xl md:px-16">
-        <div className="mx-auto flex max-w-6xl items-center justify-between">
-          <a href="#home" className="text-lg font-bold tracking-tight">
-            Vaibhav V
+    <div className="relative min-h-screen overflow-hidden bg-[#070b14] text-white">
+      <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_top_left,_rgba(34,211,238,0.18),_transparent_28%),radial-gradient(circle_at_top_right,_rgba(16,185,129,0.16),_transparent_26%),linear-gradient(to_bottom,_rgba(255,255,255,0.03),_transparent_20%)]" />
+      <div className="pointer-events-none absolute inset-0 opacity-[0.14] [background-image:linear-gradient(rgba(255,255,255,0.08)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.08)_1px,transparent_1px)] [background-size:60px_60px]" />
+
+      <nav className="sticky top-0 z-50 border-b border-white/10 bg-[#070b14]/70 px-4 py-3 backdrop-blur-xl md:px-6">
+        <div className="mx-auto flex max-w-7xl items-center justify-between">
+          <a href="#home" className="group flex items-center gap-3">
+            <span className="flex h-10 w-10 items-center justify-center rounded-2xl border border-cyan-400/30 bg-cyan-400/10 text-cyan-300 shadow-[0_0_30px_rgba(34,211,238,0.16)]">
+              <Sparkles className="h-5 w-5" />
+            </span>
+            <div>
+              <p className="text-sm font-semibold tracking-[0.22em] text-white/90">
+                VAIBHAV VISWANATH
+              </p>
+              <p className="text-xs uppercase tracking-[0.24em] text-cyan-300/80">
+                AI Systems Portfolio
+              </p>
+            </div>
           </a>
 
-          <div className="hidden items-center gap-8 text-sm text-zinc-300 md:flex">
+          <div className="hidden items-center gap-2 rounded-full border border-white/10 bg-white/5 p-1 text-sm md:flex">
             {navItems.map((item) => (
-              <a key={item.href} href={item.href} className="hover:text-white">
+              <a
+                key={item.href}
+                href={item.href}
+                className="rounded-full px-4 py-2 text-zinc-300 transition hover:bg-white/10 hover:text-white"
+              >
                 {item.label}
               </a>
             ))}
           </div>
 
-          <a
-            href={links.resume}
-            className="hidden rounded-full bg-white px-4 py-2 text-sm font-medium text-zinc-950 hover:bg-zinc-200 md:inline-flex"
-          >
-            Resume
-          </a>
-
-          <button
-            type="button"
-            className="rounded-md p-1 text-zinc-200 md:hidden"
-            onClick={() => setIsMenuOpen((open) => !open)}
-            aria-label={isMenuOpen ? "Close navigation menu" : "Open navigation menu"}
-            aria-expanded={isMenuOpen}
-            aria-controls="mobile-nav"
-          >
-            {isMenuOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
-          </button>
+          <div className="flex items-center gap-3">
+            <a
+              href={links.resume}
+              className="hidden items-center gap-2 rounded-full border border-cyan-300/20 bg-cyan-300/10 px-4 py-2 text-sm font-medium text-cyan-100 transition hover:bg-cyan-300/15 md:inline-flex"
+            >
+              Resume <ArrowUpRight className="h-4 w-4" />
+            </a>
+            <button
+              type="button"
+              className="rounded-2xl border border-white/10 bg-white/5 p-3 text-zinc-100 backdrop-blur md:hidden"
+              onClick={() => setIsMenuOpen((open) => !open)}
+              aria-label={isMenuOpen ? "Close navigation menu" : "Open navigation menu"}
+              aria-expanded={isMenuOpen}
+              aria-controls="mobile-nav"
+            >
+              {isMenuOpen ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
+            </button>
+          </div>
         </div>
 
         {isMenuOpen ? (
-          <div id="mobile-nav" className="mx-auto mt-4 flex max-w-6xl flex-col gap-3 md:hidden">
+          <div
+            id="mobile-nav"
+            className="mx-auto mt-4 flex max-w-7xl flex-col gap-2 rounded-3xl border border-white/10 bg-[#0b1020]/95 p-3 md:hidden"
+          >
             {navItems.map((item) => (
               <a
                 key={item.href}
                 href={item.href}
-                className="rounded-xl px-3 py-2 text-sm text-zinc-300 hover:bg-zinc-900 hover:text-white"
+                className="rounded-2xl px-4 py-3 text-sm text-zinc-200 transition hover:bg-white/10 hover:text-white"
                 onClick={() => setIsMenuOpen(false)}
               >
                 {item.label}
@@ -192,7 +233,7 @@ export default function Portfolio() {
             ))}
             <a
               href={links.resume}
-              className="mt-2 inline-flex w-fit rounded-full bg-white px-4 py-2 text-sm font-medium text-zinc-950 hover:bg-zinc-200"
+              className="rounded-2xl bg-cyan-400/15 px-4 py-3 text-sm font-medium text-cyan-100"
               onClick={() => setIsMenuOpen(false)}
             >
               Resume
@@ -201,137 +242,194 @@ export default function Portfolio() {
         ) : null}
       </nav>
 
-      <section id="home" className="relative overflow-hidden px-6 py-24 md:px-16">
-        <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_right,_rgba(99,102,241,0.25),_transparent_35%),radial-gradient(circle_at_bottom_left,_rgba(14,165,233,0.18),_transparent_35%)]" />
-        <div className="relative mx-auto max-w-6xl">
+      <section id="home" className="relative px-4 pt-10 md:px-6 md:pt-16">
+        <div className="mx-auto grid max-w-7xl gap-6 lg:grid-cols-[1.4fr_0.85fr]">
           <motion.div
             initial={{ opacity: 0, y: 24 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.7 }}
+            transition={{ duration: 0.8 }}
+            className="relative overflow-hidden rounded-[2rem] border border-white/10 bg-white/5 p-6 shadow-2xl shadow-cyan-950/30 backdrop-blur-xl md:p-10"
           >
-            <p className="mb-4 text-sm font-semibold uppercase tracking-[0.3em] text-sky-400">
-              AI Systems & GPU Optimization Portfolio
-            </p>
-            <h1 className="max-w-4xl text-5xl font-bold tracking-tight md:text-7xl">
-              Hi, I&apos;m Vaibhav Viswanath.
-            </h1>
-            <p className="mt-6 max-w-2xl text-lg leading-8 text-zinc-300">
-              AI systems-focused engineer with research experience in OS-level
-              inference optimization, GPU acceleration, CUDA kernel development,
-              TensorRT deployment, and performance benchmarking across CPU-GPU
-              architectures.
-            </p>
-            <div className="mt-8 flex flex-wrap gap-4">
-              <a href="#projects">
-                <Button className="rounded-2xl bg-sky-500 px-6 py-6 text-base text-white hover:bg-sky-400">
-                  View Projects <ExternalLink className="ml-2 h-4 w-4" />
-                </Button>
-              </a>
-              <a href={links.resume} download>
-                <Button
-                  variant="outline"
-                  className="rounded-2xl border-zinc-700 bg-zinc-900 px-6 py-6 text-base text-white hover:bg-zinc-800"
-                >
-                  Download Resume <Download className="ml-2 h-4 w-4" />
-                </Button>
-              </a>
+            <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_right,_rgba(34,211,238,0.16),_transparent_34%),radial-gradient(circle_at_bottom_left,_rgba(245,158,11,0.12),_transparent_30%)]" />
+            <div className="relative">
+              <span className="inline-flex items-center gap-2 rounded-full border border-cyan-400/20 bg-cyan-400/10 px-4 py-2 text-xs font-semibold uppercase tracking-[0.28em] text-cyan-200">
+                <Zap className="h-3.5 w-3.5" />
+                AI Systems + GPU + LLMs
+              </span>
+              <h1 className="mt-6 max-w-4xl text-5xl font-black leading-none tracking-tight md:text-7xl">
+                Building AI systems that feel fast, precise, and production-ready.
+              </h1>
+              <p className="mt-6 max-w-2xl text-lg leading-8 text-zinc-300">
+                I focus on high-performance AI infrastructure, GPU acceleration,
+                CUDA optimization, LLM inference, and deep learning systems
+                research. The goal is simple: make models run better and systems
+                scale smarter.
+              </p>
+
+              <div className="mt-8 flex flex-wrap gap-4">
+                <a href="#projects">
+                  <Button className="rounded-full bg-gradient-to-r from-cyan-400 to-teal-400 px-6 py-6 text-base font-semibold text-slate-950 shadow-lg shadow-cyan-500/20 hover:from-cyan-300 hover:to-teal-300">
+                    Explore Work <ArrowUpRight className="ml-2 h-4 w-4" />
+                  </Button>
+                </a>
+                <a href={links.resume} download>
+                  <Button
+                    variant="outline"
+                    className="rounded-full border-white/15 bg-white/5 px-6 py-6 text-base text-white hover:bg-white/10"
+                  >
+                    Download Resume <Download className="ml-2 h-4 w-4" />
+                  </Button>
+                </a>
+              </div>
+
+              <div className="mt-10 grid gap-3 sm:grid-cols-2 xl:grid-cols-4">
+                {metrics.map((metric) => (
+                  <div
+                    key={metric.label}
+                    className="rounded-3xl border border-white/10 bg-black/20 p-4"
+                  >
+                    <p className="text-3xl font-black text-white">{metric.value}</p>
+                    <p className="mt-1 text-sm text-zinc-400">{metric.label}</p>
+                  </div>
+                ))}
+              </div>
             </div>
           </motion.div>
+
+          <div className="grid gap-6">
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: 0.08 }}
+              className="rounded-[2rem] border border-white/10 bg-[#0b1020]/90 p-6 shadow-2xl shadow-teal-950/20 backdrop-blur-xl"
+            >
+              <div className="flex items-center gap-3">
+                <div className="rounded-2xl bg-cyan-400/10 p-3 text-cyan-300">
+                  <Layers3 className="h-5 w-5" />
+                </div>
+                <div>
+                  <p className="text-sm font-semibold uppercase tracking-[0.22em] text-cyan-200/80">
+                    Current Focus
+                  </p>
+                  <p className="text-zinc-300">Systems, inference, and optimization</p>
+                </div>
+              </div>
+              <div className="mt-5 flex flex-wrap gap-2">
+                {focusAreas.map((item) => (
+                  <span
+                    key={item}
+                    className="rounded-full border border-white/10 bg-white/5 px-3 py-2 text-xs text-zinc-200"
+                  >
+                    {item}
+                  </span>
+                ))}
+              </div>
+            </motion.div>
+
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: 0.14 }}
+              className="rounded-[2rem] border border-white/10 bg-white/5 p-6 backdrop-blur-xl"
+            >
+              <div className="flex items-center justify-between">
+                <div>
+                  <p className="text-sm font-semibold uppercase tracking-[0.22em] text-amber-200/80">
+                    What I build
+                  </p>
+                  <p className="mt-1 text-zinc-300">From CUDA kernels to LLM serving</p>
+                </div>
+                <BadgeCheck className="h-6 w-6 text-emerald-300" />
+              </div>
+              <div className="mt-5 space-y-3 text-sm text-zinc-300">
+                <div className="rounded-2xl border border-white/10 bg-black/20 p-4">
+                  High-performance AI inference and GPU optimization
+                </div>
+                <div className="rounded-2xl border border-white/10 bg-black/20 p-4">
+                  Systems research across OS scheduling, NUMA, and memory behavior
+                </div>
+                <div className="rounded-2xl border border-white/10 bg-black/20 p-4">
+                  Experimental deep learning frameworks and distributed training tools
+                </div>
+              </div>
+            </motion.div>
+          </div>
         </div>
       </section>
 
-      <main className="mx-auto max-w-6xl px-6 pb-24 md:px-16">
-        <section id="about" className="py-16">
-          <h2 className="text-3xl font-bold">About Me</h2>
-          <p className="mt-5 max-w-3xl leading-8 text-zinc-300">
-            I focus on building high-performance AI systems through GPU
-            acceleration, operating-system-level optimization, and deep learning
-            deployment. My work combines CUDA, TensorRT, Linux systems, computer
-            architecture, and ML research to improve inference latency and
-            throughput.
-          </p>
-        </section>
+      <main className="mx-auto max-w-7xl px-4 pb-24 pt-8 md:px-6 md:pt-12">
+        <section id="about" className="py-10 md:py-14">
+          <div className="grid gap-6 lg:grid-cols-[0.85fr_1.15fr]">
+            <div className="rounded-[2rem] border border-white/10 bg-white/5 p-6 backdrop-blur-xl md:p-8">
+              <p className="text-sm font-semibold uppercase tracking-[0.28em] text-cyan-300/80">
+                About
+              </p>
+              <h2 className="mt-4 text-3xl font-black tracking-tight md:text-4xl">
+                I care about speed, clarity, and systems that don&apos;t crumble under load.
+              </h2>
+              <p className="mt-4 text-zinc-300 leading-8">
+                My work combines CUDA, TensorRT, Linux systems, computer architecture,
+                and research-driven ML to improve inference latency and throughput.
+                I like projects where the bottleneck is real and the solution has to be
+                measured, not guessed.
+              </p>
+            </div>
 
-        <section className="py-16">
-          <h2 className="text-3xl font-bold">Skills</h2>
-          <div className="mt-6 flex flex-wrap gap-3">
-            {skills.map((skill) => (
-              <span
-                key={skill}
-                className="rounded-full border border-zinc-800 bg-zinc-900 px-4 py-2 text-sm text-zinc-300"
-              >
-                {skill}
-              </span>
-            ))}
+            <div className="grid gap-4 md:grid-cols-2">
+              {skills.map((skill, index) => (
+                <motion.div
+                  key={skill}
+                  initial={{ opacity: 0, y: 12 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ delay: index * 0.02 }}
+                  className="rounded-2xl border border-white/10 bg-[#0b1020]/80 px-4 py-3 text-sm text-zinc-200 shadow-lg shadow-black/10"
+                >
+                  {skill}
+                </motion.div>
+              ))}
+            </div>
           </div>
         </section>
 
-        <section id="research" className="py-16">
-          <h2 className="text-3xl font-bold">Research</h2>
-          <div className="relative mt-8 border-l border-zinc-800 pl-6">
-            {research.map((item, index) => (
-              <motion.div
-                key={item.title}
-                className="relative"
-                initial={{ opacity: 0, y: 24 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: index * 0.1 }}
-              >
-                <div className="absolute -left-[31px] top-8 h-3 w-3 rounded-full bg-sky-400" />
-                <Card className="mb-6 rounded-2xl border-zinc-800 bg-zinc-900/80 shadow-xl">
-                  <CardContent className="p-6">
-                    <div className="flex flex-wrap items-center gap-3">
-                      <h3 className="text-xl font-semibold text-white">{item.title}</h3>
-                      {item.status ? (
-                        <span className="rounded-full border border-zinc-700 bg-zinc-950 px-3 py-1 text-xs font-medium uppercase tracking-[0.2em] text-zinc-400">
-                          {item.status}
-                        </span>
-                      ) : null}
-                    </div>
-                    <ul className="mt-4 list-disc space-y-2 pl-5 text-sm leading-7 text-zinc-400">
-                      {item.points.map((point) => (
-                        <li key={point}>{point}</li>
-                      ))}
-                    </ul>
-                    {item.link ? (
-                      <a
-                        href={item.link}
-                        target="_blank"
-                        rel="noreferrer"
-                        className="mt-5 inline-flex rounded-xl bg-sky-500 px-4 py-2 text-sm font-medium text-white hover:bg-sky-400"
-                      >
-                        View Publication
-                      </a>
-                    ) : null}
-                  </CardContent>
-                </Card>
-              </motion.div>
-            ))}
+        <section id="projects" className="py-10 md:py-14">
+          <div className="flex items-end justify-between gap-4">
+            <div>
+              <p className="text-sm font-semibold uppercase tracking-[0.28em] text-emerald-300/80">
+                Projects
+              </p>
+              <h2 className="mt-3 text-3xl font-black tracking-tight md:text-4xl">
+                Selected work that shows the engineering range
+              </h2>
+            </div>
           </div>
-        </section>
 
-        <section id="projects" className="py-16">
-          <h2 className="text-3xl font-bold">Featured Projects</h2>
-          <div className="mt-8 grid gap-6 md:grid-cols-3">
+          <div className="mt-8 grid gap-6 md:grid-cols-2 xl:grid-cols-3">
             {projects.map((project, index) => (
               <motion.div
                 key={project.title}
-                initial={{ opacity: 0, y: 24 }}
+                initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
-                transition={{ delay: index * 0.12 }}
+                transition={{ delay: index * 0.08 }}
+                whileHover={{ y: -6 }}
               >
-                <Card className="h-full rounded-2xl border-zinc-800 bg-zinc-900/80 shadow-xl">
-                  <CardContent className="p-6">
-                    <div className="mb-5 flex h-12 w-12 items-center justify-center rounded-2xl bg-sky-500/10 text-sky-400">
-                      {project.icon}
+                <Card className="group h-full overflow-hidden rounded-[1.8rem] border-white/10 bg-white/5 shadow-2xl shadow-black/10 transition hover:border-cyan-300/30">
+                  <div className="h-1 bg-gradient-to-r from-cyan-400 via-teal-400 to-emerald-400" />
+                  <CardContent className="flex h-full flex-col p-6">
+                    <div className="flex items-start justify-between gap-4">
+                      <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-cyan-400/10 text-cyan-300 ring-1 ring-cyan-300/20">
+                        {project.icon}
+                      </div>
+                      <span className="rounded-full border border-white/10 bg-black/20 px-3 py-1 text-[11px] uppercase tracking-[0.24em] text-zinc-400">
+                        Project
+                      </span>
                     </div>
-                    <h3 className="text-xl font-semibold text-white">{project.title}</h3>
-                    <p className="mt-3 text-sm leading-7 text-zinc-400">
-                      {project.desc}
-                    </p>
-                    <p className="mt-5 text-sm font-medium text-sky-400">
+                    <h3 className="mt-5 text-2xl font-bold tracking-tight text-white">
+                      {project.title}
+                    </h3>
+                    <p className="mt-3 text-sm leading-7 text-zinc-300">{project.desc}</p>
+                    <p className="mt-5 text-sm font-semibold tracking-wide text-cyan-300">
                       {project.tech}
                     </p>
                     <div className="mt-6 flex gap-3">
@@ -339,15 +437,15 @@ export default function Portfolio() {
                         href={project.repo}
                         target="_blank"
                         rel="noreferrer"
-                        className="rounded-xl border border-zinc-800 px-4 py-2 text-sm text-zinc-300 hover:bg-zinc-800"
+                        className="inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/5 px-4 py-2 text-sm text-zinc-200 transition hover:bg-white/10"
                       >
-                        Code
+                        Code <ArrowUpRight className="h-4 w-4" />
                       </a>
                       <a
                         href="#contact"
-                        className="rounded-xl bg-sky-500 px-4 py-2 text-sm font-medium text-white hover:bg-sky-400"
+                        className="inline-flex items-center gap-2 rounded-full bg-gradient-to-r from-cyan-400 to-teal-400 px-4 py-2 text-sm font-semibold text-slate-950 transition hover:from-cyan-300 hover:to-teal-300"
                       >
-                        Discuss
+                        Discuss <ArrowUpRight className="h-4 w-4" />
                       </a>
                     </div>
                   </CardContent>
@@ -357,55 +455,173 @@ export default function Portfolio() {
           </div>
         </section>
 
-        <section id="education" className="py-16">
-          <h2 className="text-3xl font-bold">Education</h2>
-          <Card className="mt-6 rounded-2xl border-zinc-800 bg-zinc-900/80">
-            <CardContent className="flex gap-4 p-6">
-              <GraduationCap className="mt-1 h-7 w-7 text-sky-400" />
+        <section id="research" className="py-10 md:py-14">
+          <div className="rounded-[2rem] border border-white/10 bg-white/5 p-6 md:p-8">
+            <div className="flex items-center gap-3">
+              <span className="rounded-2xl bg-amber-400/10 p-3 text-amber-300">
+                <BookOpenText className="h-5 w-5" />
+              </span>
               <div>
-                <h3 className="text-xl font-semibold text-white">
-                  VIT Vellore Institute of Technology
-                </h3>
-                <p className="mt-2 text-zinc-400">
+                <p className="text-sm font-semibold uppercase tracking-[0.28em] text-amber-200/80">
+                  Research
+                </p>
+                <h2 className="text-3xl font-black tracking-tight md:text-4xl">
+                  Publications, manuscripts, and exploratory work
+                </h2>
+              </div>
+            </div>
+
+            <div className="mt-8 grid gap-6">
+              {research.map((item, index) => (
+                <motion.div
+                  key={item.title}
+                  initial={{ opacity: 0, y: 18 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ delay: index * 0.08 }}
+                  className="relative overflow-hidden rounded-[1.6rem] border border-white/10 bg-[#0b1020]/85 p-6"
+                >
+                  <div className="absolute inset-x-0 top-0 h-1 bg-gradient-to-r from-amber-300 via-cyan-300 to-emerald-300" />
+                  <div className="flex flex-wrap items-center gap-3">
+                    <h3 className="text-xl font-bold text-white">{item.title}</h3>
+                    {item.status ? (
+                      <span className="rounded-full border border-amber-300/20 bg-amber-300/10 px-3 py-1 text-xs font-semibold uppercase tracking-[0.2em] text-amber-100">
+                        {item.status}
+                      </span>
+                    ) : null}
+                  </div>
+                  <ul className="mt-4 grid gap-3 text-sm leading-7 text-zinc-300 md:grid-cols-2">
+                    {item.points.map((point) => (
+                      <li
+                        key={point}
+                        className="rounded-2xl border border-white/10 bg-white/5 px-4 py-3"
+                      >
+                        {point}
+                      </li>
+                    ))}
+                  </ul>
+                  {item.link ? (
+                    <a
+                      href={item.link}
+                      target="_blank"
+                      rel="noreferrer"
+                      className="mt-5 inline-flex items-center gap-2 rounded-full bg-gradient-to-r from-cyan-400 to-teal-400 px-4 py-2 text-sm font-semibold text-slate-950 transition hover:from-cyan-300 hover:to-teal-300"
+                    >
+                      View Publication <ArrowUpRight className="h-4 w-4" />
+                    </a>
+                  ) : null}
+                </motion.div>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        <section id="education" className="py-10 md:py-14">
+          <div className="grid gap-6 lg:grid-cols-[0.9fr_1.1fr]">
+            <Card className="overflow-hidden rounded-[2rem] border-white/10 bg-white/5 shadow-2xl shadow-black/10">
+              <div className="h-1 bg-gradient-to-r from-cyan-400 via-teal-400 to-emerald-400" />
+              <CardContent className="p-6 md:p-8">
+                <div className="flex items-center gap-3">
+                  <span className="rounded-2xl bg-cyan-400/10 p-3 text-cyan-300">
+                    <GraduationCap className="h-5 w-5" />
+                  </span>
+                  <div>
+                    <p className="text-sm font-semibold uppercase tracking-[0.28em] text-cyan-300/80">
+                      Education
+                    </p>
+                    <h3 className="mt-2 text-2xl font-bold text-white">
+                      VIT Vellore Institute of Technology
+                    </h3>
+                  </div>
+                </div>
+                <p className="mt-5 text-zinc-300">
                   Bachelor of Technology in Computer Science
                 </p>
+                <p className="mt-3 text-sm leading-7 text-zinc-400">
+                  The strongest signal here is the systems background: computer architecture,
+                  operating systems, GPU work, and performance analysis all show up in the same profile.
+                </p>
+              </CardContent>
+            </Card>
+
+            <div className="grid gap-4">
+              <div className="rounded-[1.6rem] border border-white/10 bg-[#0b1020]/85 p-6">
+                <p className="text-sm font-semibold uppercase tracking-[0.24em] text-emerald-200/80">
+                  What hiring managers should notice
+                </p>
+                <div className="mt-4 grid gap-3 sm:grid-cols-2">
+                  {[
+                    "LLM inference and serving",
+                    "GPU acceleration and CUDA",
+                    "Distributed systems thinking",
+                    "Research and experimentation",
+                  ].map((item) => (
+                    <div
+                      key={item}
+                      className="rounded-2xl border border-white/10 bg-white/5 px-4 py-3 text-sm text-zinc-200"
+                    >
+                      {item}
+                    </div>
+                  ))}
+                </div>
+              </div>
+
+              <div className="rounded-[1.6rem] border border-white/10 bg-white/5 p-6">
+                <p className="text-sm font-semibold uppercase tracking-[0.24em] text-amber-200/80">
+                  Availability
+                </p>
+                <p className="mt-3 text-zinc-300">
+                  Open to US remote internships and engineering roles that sit at the
+                  intersection of AI systems, ML infrastructure, and high-performance computing.
+                </p>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section id="contact" className="py-10 md:py-14">
+          <Card className="overflow-hidden rounded-[2rem] border-white/10 bg-gradient-to-br from-cyan-400/10 via-white/5 to-teal-400/10 shadow-2xl shadow-cyan-950/20">
+            <CardContent className="p-6 md:p-10">
+              <div className="grid gap-8 lg:grid-cols-[1.1fr_0.9fr] lg:items-center">
+                <div>
+                  <p className="text-sm font-semibold uppercase tracking-[0.28em] text-cyan-200/80">
+                    Contact
+                  </p>
+                  <h2 className="mt-4 text-4xl font-black tracking-tight md:text-5xl">
+                    Let&apos;s build something fast, useful, and technically honest.
+                  </h2>
+                  <p className="mt-4 max-w-2xl text-zinc-300 leading-8">
+                    I&apos;m open to AI systems, GPU engineering, CUDA, inference optimization,
+                    and research-focused engineering roles.
+                  </p>
+                </div>
+
+                <div className="grid gap-3">
+                  <a href={links.email}>
+                    <Button className="w-full rounded-2xl bg-white px-5 py-6 text-base font-semibold text-zinc-950 hover:bg-zinc-100">
+                      <Mail className="mr-2 h-4 w-4" /> Email
+                    </Button>
+                  </a>
+                  <a href={links.github} target="_blank" rel="noreferrer">
+                    <Button
+                      variant="outline"
+                      className="w-full rounded-2xl border-white/10 bg-black/15 px-5 py-6 text-base text-white hover:bg-white/10"
+                    >
+                      <Github className="mr-2 h-4 w-4" /> GitHub
+                    </Button>
+                  </a>
+                  <a href={links.linkedin} target="_blank" rel="noreferrer">
+                    <Button
+                      variant="outline"
+                      className="w-full rounded-2xl border-white/10 bg-black/15 px-5 py-6 text-base text-white hover:bg-white/10"
+                    >
+                      <Linkedin className="mr-2 h-4 w-4" /> LinkedIn
+                    </Button>
+                  </a>
+                </div>
               </div>
             </CardContent>
           </Card>
-        </section>
-
-        <section
-          id="contact"
-          className="rounded-3xl border border-zinc-800 bg-zinc-900 p-8 md:p-10"
-        >
-          <h2 className="text-3xl font-bold">Let&apos;s Connect</h2>
-          <p className="mt-4 max-w-2xl text-zinc-300">
-            I&apos;m open to AI systems, GPU engineering, CUDA, inference
-            optimization, and research-focused engineering roles.
-          </p>
-          <div className="mt-6 flex flex-wrap gap-4">
-            <a href={links.email}>
-              <Button className="rounded-2xl bg-white text-zinc-950 hover:bg-zinc-200">
-                <Mail className="mr-2 h-4 w-4" /> Email
-              </Button>
-            </a>
-            <a href={links.github} target="_blank" rel="noreferrer">
-              <Button
-                variant="outline"
-                className="rounded-2xl border-zinc-700 bg-zinc-950 text-white hover:bg-zinc-800"
-              >
-                <Github className="mr-2 h-4 w-4" /> GitHub
-              </Button>
-            </a>
-            <a href={links.linkedin} target="_blank" rel="noreferrer">
-              <Button
-                variant="outline"
-                className="rounded-2xl border-zinc-700 bg-zinc-950 text-white hover:bg-zinc-800"
-              >
-                <Linkedin className="mr-2 h-4 w-4" /> LinkedIn
-              </Button>
-            </a>
-          </div>
         </section>
       </main>
     </div>
