@@ -97,6 +97,13 @@ export default function Portfolio() {
       repo: "https://github.com/vaibhavviji2809-eng/MiniPyTorch",
       icon: <Cpu className="h-6 w-6" />,
     },
+    {
+      title: "Mini Distributed Training Framework",
+      desc: "Built a compact framework for experimenting with distributed training workflows, scaling strategies, and deep learning systems concepts.",
+      tech: "Distributed Training, Deep Learning Systems, Scaling",
+      repo: "https://github.com/vaibhavviji2809-eng/Mini-Distributed-Training-Framework",
+      icon: <Brain className="h-6 w-6" />,
+    },
   ];
 
   const research = [
