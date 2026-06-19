@@ -4,6 +4,10 @@
 
 :root {
   color-scheme: dark;
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
 html {
@@ -13,10 +17,12 @@ html {
 body {
   margin: 0;
   min-width: 320px;
+  overflow-x: hidden;
   background:
-    radial-gradient(circle at top, rgba(34, 211, 238, 0.14), transparent 34%),
+    radial-gradient(circle at top left, rgba(34, 211, 238, 0.16), transparent 28%),
+    radial-gradient(circle at top right, rgba(99, 102, 241, 0.14), transparent 24%),
     radial-gradient(circle at bottom right, rgba(16, 185, 129, 0.1), transparent 30%),
-    #060913;
+    #050814;
   color: #ffffff;
   font-family:
     "Inter", "Segoe UI", ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont,
@@ -53,7 +59,7 @@ a {
 }
 
 ::-webkit-scrollbar-track {
-  background: #060913;
+  background: #050814;
 }
 
 ::-webkit-scrollbar-thumb {

@@ -8,16 +8,20 @@ import {
   Code2,
   Cpu,
   Download,
-  ExternalLink,
-  Github,
   GraduationCap,
   Layers3,
   Linkedin,
   Mail,
   Menu,
   Sparkles,
-  Zap,
+  Target,
   X,
+  Github,
+  Rocket,
+  ShieldCheck,
+  Server,
+  Zap,
+  Microscope,
 } from "lucide-react";
 import { Button } from "./components/ui/button";
 import { Card, CardContent } from "./components/ui/card";
@@ -30,6 +34,15 @@ const fadeUp = {
     transition: { duration: 0.7, delay },
   }),
 };
+
+const lines = [
+  "GPU acceleration",
+  "LLM inference",
+  "TensorRT",
+  "CUDA kernels",
+  "Distributed training",
+  "Research writing",
+];
 
 export default function Portfolio() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -50,10 +63,10 @@ export default function Portfolio() {
   ];
 
   const metrics = [
-    { value: "6", label: "featured projects" },
+    { value: "6+", label: "systems projects" },
     { value: "4", label: "research works" },
-    { value: "LLM", label: "inference + systems" },
-    { value: "US", label: "remote target" },
+    { value: "84", label: "classes in vision work" },
+    { value: "US", label: "internship ready" },
   ];
 
   const focusAreas = [
@@ -109,7 +122,7 @@ export default function Portfolio() {
       tech: "Deep Learning, Autograd, PyTorch Internals",
       impact: "Framework internals",
       repo: "https://github.com/vaibhavviji2809-eng/MiniPyTorch",
-      icon: <Cpu className="h-6 w-6" />,
+      icon: <Server className="h-6 w-6" />,
     },
     {
       title: "Mini Distributed Training Framework",
@@ -117,7 +130,7 @@ export default function Portfolio() {
       tech: "Distributed Training, Deep Learning Systems, Scaling",
       impact: "Distributed scaling",
       repo: "https://github.com/vaibhavviji2809-eng/Mini-Distributed-Training-Framework",
-      icon: <Brain className="h-6 w-6" />,
+      icon: <Rocket className="h-6 w-6" />,
     },
   ];
 
@@ -125,6 +138,7 @@ export default function Portfolio() {
     {
       title: "Operating System-Level Optimization for Accelerating AI Inference",
       status: "Unpublished manuscript",
+      icon: <Target className="h-5 w-5" />,
       points: [
         "Conducted NUMA-based CPU affinity experiments using numactl.",
         "Benchmarked inference latency under memory binding configurations.",
@@ -134,6 +148,8 @@ export default function Portfolio() {
     {
       title: "Artificial Intelligence and Privacy Concerns",
       link: "https://www.cureusjournals.com/articles/3689-artificial-intelligence-and-privacy-concerns-balancing-innovation-with-security#!/",
+      status: "Published research",
+      icon: <ShieldCheck className="h-5 w-5" />,
       points: [
         "Published research on privacy vulnerabilities in large-scale AI systems.",
         "Proposed mitigation strategies for secure AI deployment.",
@@ -142,6 +158,7 @@ export default function Portfolio() {
     {
       title: "Emotion Detection Using Artificial Intelligence",
       status: "Unpublished manuscript",
+      icon: <Microscope className="h-5 w-5" />,
       points: [
         "Explored multimodal emotion recognition across facial, speech, and text signals.",
         "Reviewed CNN-based facial emotion recognition approaches, including MTCNN-style detection pipelines.",
@@ -151,6 +168,7 @@ export default function Portfolio() {
     {
       title: "Suicide Risk Prediction using Machine Learning",
       status: "Unpublished manuscript",
+      icon: <Zap className="h-5 w-5" />,
       points: [
         "Designed predictive ML models with imbalance handling.",
         "Evaluated performance using ROC-AUC and F1 metrics.",
@@ -159,11 +177,12 @@ export default function Portfolio() {
   ];
 
   return (
-    <div className="relative min-h-screen overflow-hidden bg-[#060913] text-white">
-      <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_top_left,_rgba(34,211,238,0.16),_transparent_30%),radial-gradient(circle_at_top_right,_rgba(99,102,241,0.14),_transparent_28%),radial-gradient(circle_at_bottom_left,_rgba(16,185,129,0.12),_transparent_26%),linear-gradient(to_bottom,_rgba(255,255,255,0.02),_transparent_20%)]" />
+    <div className="relative min-h-screen overflow-hidden bg-[#050814] text-white">
+      <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_top_left,_rgba(34,211,238,0.18),_transparent_28%),radial-gradient(circle_at_top_right,_rgba(99,102,241,0.16),_transparent_24%),radial-gradient(circle_at_bottom_left,_rgba(16,185,129,0.12),_transparent_26%),linear-gradient(to_bottom,_rgba(255,255,255,0.03),_transparent_18%)]" />
       <div className="pointer-events-none absolute inset-0 opacity-[0.12] [background-image:linear-gradient(rgba(255,255,255,0.08)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.08)_1px,transparent_1px)] [background-size:72px_72px]" />
+      <div className="pointer-events-none absolute inset-x-0 top-0 h-40 bg-gradient-to-b from-cyan-400/10 to-transparent blur-3xl" />
 
-      <nav className="sticky top-0 z-50 border-b border-white/10 bg-[#060913]/75 px-4 py-3 backdrop-blur-xl md:px-6">
+      <nav className="sticky top-0 z-50 border-b border-white/10 bg-[#050814]/80 px-4 py-3 backdrop-blur-xl md:px-6">
         <div className="mx-auto flex max-w-7xl items-center justify-between">
           <a href="#home" className="flex items-center gap-3">
             <span className="flex h-10 w-10 items-center justify-center rounded-2xl border border-cyan-400/30 bg-cyan-400/10 text-cyan-300">
@@ -238,21 +257,21 @@ export default function Portfolio() {
       </nav>
 
       <section id="home" className="px-4 pt-10 md:px-6 md:pt-16">
-        <div className="mx-auto grid max-w-7xl gap-6 lg:grid-cols-[1.45fr_0.9fr]">
+        <div className="mx-auto grid max-w-7xl gap-6 lg:grid-cols-[1.4fr_0.95fr]">
           <motion.div
             variants={fadeUp}
             initial="hidden"
             animate="show"
             custom={0}
-            className="relative overflow-hidden rounded-[2.25rem] border border-white/10 bg-white/5 p-6 shadow-2xl shadow-cyan-950/30 backdrop-blur-xl md:p-10"
+            className="relative overflow-hidden rounded-[2.4rem] border border-white/10 bg-white/5 p-6 shadow-2xl shadow-cyan-950/30 backdrop-blur-xl md:p-10"
           >
-            <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_right,_rgba(34,211,238,0.15),_transparent_34%),radial-gradient(circle_at_bottom_left,_rgba(245,158,11,0.12),_transparent_30%)]" />
+            <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_right,_rgba(34,211,238,0.14),_transparent_34%),radial-gradient(circle_at_bottom_left,_rgba(245,158,11,0.10),_transparent_30%)]" />
             <div className="relative">
               <span className="inline-flex items-center gap-2 rounded-full border border-cyan-400/20 bg-cyan-400/10 px-4 py-2 text-xs font-semibold uppercase tracking-[0.28em] text-cyan-200">
                 <Zap className="h-3.5 w-3.5" />
                 GPU acceleration, LLM inference, deep learning systems
               </span>
-              <h1 className="mt-6 max-w-4xl text-5xl font-black leading-none tracking-tight md:text-7xl">
+              <h1 className="mt-6 max-w-4xl text-5xl font-black leading-[0.92] tracking-tight md:text-7xl">
                 Building AI systems that feel fast before they look impressive.
               </h1>
               <p className="mt-6 max-w-2xl text-lg leading-8 text-zinc-300">
@@ -297,9 +316,12 @@ export default function Portfolio() {
               initial="hidden"
               animate="show"
               custom={0.08}
-              className="rounded-[2rem] border border-white/10 bg-[#0a1020]/90 p-6 shadow-2xl shadow-teal-950/20 backdrop-blur-xl"
+              className="relative overflow-hidden rounded-[2.2rem] border border-white/10 bg-[#0a1020]/90 p-6 shadow-2xl shadow-teal-950/20 backdrop-blur-xl"
             >
-              <div className="flex items-center gap-3">
+              <div className="absolute right-4 top-4 rounded-full border border-white/10 bg-white/5 px-3 py-1 text-[11px] uppercase tracking-[0.24em] text-zinc-300">
+                Recruiter snapshot
+              </div>
+              <div className="flex items-center gap-3 pr-20">
                 <div className="rounded-2xl bg-cyan-400/10 p-3 text-cyan-300">
                   <Layers3 className="h-5 w-5" />
                 </div>
@@ -320,6 +342,15 @@ export default function Portfolio() {
                   </span>
                 ))}
               </div>
+              <div className="mt-6 rounded-3xl border border-cyan-300/10 bg-black/20 p-4">
+                <p className="text-sm font-semibold uppercase tracking-[0.22em] text-amber-200/80">
+                  One-line pitch
+                </p>
+                <p className="mt-2 text-sm leading-7 text-zinc-300">
+                  I turn research-heavy ML ideas into fast, measurable systems work
+                  that feels practical to engineers and compelling to recruiters.
+                </p>
+              </div>
             </motion.div>
 
             <motion.div
@@ -327,7 +358,7 @@ export default function Portfolio() {
               initial="hidden"
               animate="show"
               custom={0.14}
-              className="rounded-[2rem] border border-white/10 bg-white/5 p-6 backdrop-blur-xl"
+              className="rounded-[2.2rem] border border-white/10 bg-white/5 p-6 backdrop-blur-xl"
             >
               <div className="flex items-center justify-between">
                 <div>
@@ -354,6 +385,26 @@ export default function Portfolio() {
       </section>
 
       <main className="mx-auto max-w-7xl px-4 pb-24 pt-8 md:px-6 md:pt-12">
+        <section className="overflow-hidden py-8">
+          <div className="rounded-[2rem] border border-white/10 bg-white/5 px-5 py-4 backdrop-blur-xl md:px-8">
+            <div className="flex flex-wrap items-center gap-3">
+              <span className="rounded-full border border-white/10 bg-black/20 px-3 py-1 text-[11px] uppercase tracking-[0.24em] text-zinc-300">
+                Signal
+              </span>
+              <div className="flex flex-wrap gap-2">
+                {lines.map((item) => (
+                  <span
+                    key={item}
+                    className="rounded-full border border-white/10 bg-black/20 px-4 py-2 text-sm text-zinc-200"
+                  >
+                    {item}
+                  </span>
+                ))}
+              </div>
+            </div>
+          </div>
+        </section>
+
         <section id="about" className="py-10 md:py-14">
           <div className="grid gap-6 lg:grid-cols-[0.85fr_1.15fr]">
             <div className="rounded-[2rem] border border-white/10 bg-white/5 p-6 backdrop-blur-xl md:p-8">
@@ -479,6 +530,9 @@ export default function Portfolio() {
                 >
                   <div className="absolute inset-x-0 top-0 h-1 bg-gradient-to-r from-amber-300 via-cyan-300 to-emerald-300" />
                   <div className="flex flex-wrap items-center gap-3">
+                    <span className="rounded-2xl border border-white/10 bg-white/5 p-2 text-cyan-200">
+                      {item.icon}
+                    </span>
                     <h3 className="text-xl font-bold text-white">{item.title}</h3>
                     {item.status ? (
                       <span className="rounded-full border border-amber-300/20 bg-amber-300/10 px-3 py-1 text-xs font-semibold uppercase tracking-[0.2em] text-amber-100">
