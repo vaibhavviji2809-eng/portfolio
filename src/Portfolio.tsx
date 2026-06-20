@@ -621,7 +621,7 @@ export default function Portfolio() {
                   Availability
                 </p>
                 <p className="mt-3 text-zinc-300">
-                  Open to US remote internships and engineering roles that sit at the
+                  Open to US internships and engineering roles that sit at the
                   intersection of AI systems, ML infrastructure, and high-performance computing.
                 </p>
               </div>
